@@ -1,0 +1,7 @@
+Flask==1.1.2
+rpy2==3.3.3
+webrtcvad==2.0.10
+wave==0.0.2
+matplotlib==3.5.0
+pydub==0.25.1
+numpy==1.21.4
