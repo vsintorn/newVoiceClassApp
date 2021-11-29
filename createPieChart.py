@@ -20,10 +20,11 @@ def CreatePieChart(arrayML):
     data = [maleStats, femaleStats]
     gender = ['Male '+str(round(maleStats*100/len(arrayML)))+'%', 'Female '+str(round(femaleStats*100/len(arrayML)))+'%']
 
-    plt.figure(figsize =(10, 7))
+    """plt.figure(figsize =(10, 7))
     plt.pie(data, labels = gender)
     print(data)
-    plt.show()
+    plt.show()"""
+    return data
 
 
 def allowSelfSignedHttps(allowed):
@@ -94,7 +95,7 @@ def runML(fileName, modelURL):
 def mainPieChart(fileName):
   arrayML = runML(fileName, 'http://57ce19b0-2b8d-4687-a39a-8279cd57273f.northeurope.azurecontainer.io/score') #10 seconds no silence
  
-  CreatePieChart(arrayML)
+  return CreatePieChart(arrayML)
 
 #testModels('Testdata\Sigge Eklund Jag har känt mycket avund.wavconverted.wavNon-Silenced.csv', 'Testdata\Sigge Eklund Jag har känt mycket avund.wavconverted.wavNon-Silenced_facit.csv')
 #mainPieChart('61 Det gäller ett saldo redigerad.wavconverted.wavNon-Silenced.csv')

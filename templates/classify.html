@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="values_data1" content={{values[0]}}>
+  <meta id="values_data2" content={{values[1]}}>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+</head>
+
+<body>
+    <canvas id="pie-chart" width="800" height="300"></canvas>
+    <script>
+      const valuesData1=document.getElementById("values_data1").getAttribute('content');const valuesData2 = document.getElementById("values_data2").getAttribute('content');
+      const valuesData = [valuesData1, valuesData2];
+      console.log(valuesData)
+    
+    
+      chart = new Chart(document.getElementById("pie-chart").getContext('2d'), {
+       type: 'pie',
+        data: {
+          labels: ['Male','Female'],
+          datasets: [{
+            label: "Pie Chart",
+            backgroundColor: ['orange','green'],
+          data: valuesData
+          }]
+        },
+        options: {
+          title: {
+            fontFamily: 'Trebuchet MS', 
+            fontSize: 40,
+            display: true,
+            text: 'Distribution of speaking space'
+          }
+        }
+      });
+      
+    </script>
+</body>
+</html>

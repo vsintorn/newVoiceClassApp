@@ -1,0 +1,121 @@
+<html lang="en">
+   <head>
+     
+      <style>
+
+      body{
+         max-width: fit-content;
+         max-height: fit-content;
+         margin:auto;
+         margin-top: 100px;
+         justify-content: center;
+         align-items: center;
+         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        
+         
+      }
+      .wrapper{
+         background-color: rgb(102, 141, 101);
+         display: flex;
+         flex: 1;
+         justify-content: center;
+         align-items: center;
+         height: 300px;
+         max-width: 400px;
+         /*border: 1.5px solid black;*/
+         border-radius: 10%;
+         box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.7);
+      
+      }
+      
+      form{
+         display: flex;
+         flex: 1;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+      }
+      input{
+         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      .file{
+         display: none;
+         margin: 10px;
+         width: fit-content;
+      }
+      .file-box{
+         display: inline-block;
+         max-width: 350px;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         margin-top: 10px;
+         padding: 5px ;
+         box-sizing: border-box;
+         height: calc(2rem - 2px);
+      }
+      .button {
+         background:white;
+         padding: 15px;
+         border-radius: 10%;
+         width: fit-content;
+         font-size: medium;
+         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+         border: none;
+      }
+
+      .button:hover{
+         background-color: rgb(228, 222, 222);
+         cursor: pointer;
+
+      }
+
+      .fileLabel{
+         display: flex;
+         flex-direction: column-reverse;
+         justify-content: center;
+         align-items: center;
+      }
+      .submit-button{
+         margin-top: 70px;
+      }
+
+      #loading{
+         height: 15px;
+      }
+      </style>
+   </head>
+
+
+   <body>
+      <h1>Voice Gender Classification </h1>
+      <div class= "wrapper">
+      <form action = "http://localhost:8080/classify" method = "POST" 
+         enctype = "multipart/form-data">
+         
+         <input type="file" name = "file" id="file" class="file" onchange='uploadFile(this)'/>
+         <label class = "fileLabel" for="file">
+            <span id="file-name" class="file-box"></span>
+            <span class="button">
+              
+              Select File
+            </span>
+          </label>
+         <input class = "button submit-button"  type = "submit" value="Upload" onclick="uploading()"/>
+         <p id = "loading"></p>
+      </form>   
+     
+   </div>
+
+   </body>
+</html>
+
+<script>
+   function uploadFile(target) {
+    document.getElementById("file-name").innerHTML = target.files[0].name;
+   }
+   function uploading() {
+    document.getElementById("loading").innerHTML = "Loading...";
+   }
+</script>

@@ -4,6 +4,15 @@ import sys
 import wave
 import webrtcvad
 
+# This code is based on 
+"""/***************************************************************************************
+*    Title: Audio Processing
+*    Author: Bala Murugan NG
+*    Date: 2020/06/13
+*    Code version: <code version>
+*    Availability: https://github.com/ngbala6/Audio-Processing
+*
+***************************************************************************************/"""
 
 def read_wave(path):
     """Reads a .wav file.
@@ -141,6 +150,6 @@ def silenceRemoveFunc(agressiveness, filename):
     filename = filename.split('/')[-1]
     filename = filename.split('.')[0]
 
-    non_silence_fileName = f"removesilence/silenced/{filename}Non-Silenced.wav"
+    non_silence_fileName = f"removeSilence/silenced/{filename}Silenced.wav"
     write_wave(non_silence_fileName, joinedaudio, sample_rate)
     return (non_silence_fileName)
